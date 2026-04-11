@@ -10,8 +10,7 @@ const opcoes = [
   "Criar algo que nem existe com IA's",
   "Projeto Python",
   "Projeto com Arduino",
-  "Projeto Python",
-  "Projeto Python"
+  
 ];
 
 function desenharRoleta() {
