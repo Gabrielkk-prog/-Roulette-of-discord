@@ -1,4 +1,4 @@
-/*
+
 body {
   display: flex;
   justify-content: center;
@@ -43,4 +43,3 @@ body {
 .segment:nth-child(5) { background-color: purple; transform: rotate(240deg); }
 .segment:nth-child(6) { background-color: orange; transform: rotate(300deg); }
 
-*/

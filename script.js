@@ -1,5 +1,5 @@
 
-/* const roleta = document.getElementById("roleta");
+const roleta = document.getElementById("roleta");
 const botao = document.getElementById("girar");
 const resultado = document.getElementById("resultado");
 
@@ -15,4 +15,3 @@ botao.addEventListener("click", () => {
     resultado.textContent = "Resultado: " + opcoes[index];
   }, 2000);
 });
-*/
