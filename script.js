@@ -3,7 +3,7 @@ const roleta = document.getElementById("roleta");
 const botao = document.getElementById("girar");
 const resultado = document.getElementById("resultado");
 
-const opcoes = ["A", "B", "C", "D", "E", "F"];
+const opcoes = ["N8N","Expo","React","Criar algo que nem existe com IA's","ProjetoPython","Projeto com arduino","ProjetoPython","ProjetoPython"];
 
 botao.addEventListener("click", () => {
   const index = Math.floor(Math.random() * opcoes.length);
