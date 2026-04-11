@@ -1,11 +1,50 @@
-
 const roleta = document.getElementById("roleta");
-const botao = document.getElementById("girar");
+const girarBtn = document.getElementById("girar");
 const resultado = document.getElementById("resultado");
+const entrada = document.getElementById("entrada");
+const salvarBtn = document.getElementById("salvar");
 
-const opcoes = ["N8N","Expo","React","Criar algo que nem existe com IA's","ProjetoPython","Projeto com arduino","ProjetoPython","ProjetoPython"];
+let opcoes = JSON.parse(localStorage.getItem("opcoes")) || [
+  "Estudar",
+  "Treinar",
+  "Descansar",
+  "Programar",
+  "Ler",
+  "Focar"
+];
 
-botao.addEventListener("click", () => {
+entrada.value = opcoes.join(", ");
+
+function gerarCores(qtd) {
+  const cores = [];
+  for (let i = 0; i < qtd; i++) {
+    cores.push(`hsl(${(360 / qtd) * i}, 80%, 60%)`);
+  }
+  return cores;
+}
+
+function desenharRoleta() {
+  const cores = gerarCores(opcoes.length);
+  const angulo = 360 / opcoes.length;
+
+  let gradiente = "conic-gradient(";
+
+  opcoes.forEach((_, i) => {
+    gradiente += `${cores[i]} ${i * angulo}deg ${(i + 1) * angulo}deg,`;
+  });
+
+  roleta.style.background = gradiente.slice(0, -1) + ")";
+}
+
+desenharRoleta();
+
+salvarBtn.addEventListener("click", () => {
+  opcoes = entrada.value.split(",").map(o => o.trim()).filter(o => o);
+  localStorage.setItem("opcoes", JSON.stringify(opcoes));
+  desenharRoleta();
+});
+
+girarBtn.addEventListener("click", () => {
   const index = Math.floor(Math.random() * opcoes.length);
   const angulo = 360 * 5 + (index * (360 / opcoes.length));
 
@@ -13,5 +52,5 @@ botao.addEventListener("click", () => {
 
   setTimeout(() => {
     resultado.textContent = "Resultado: " + opcoes[index];
-  }, 2000);
+  }, 3000);
 });
